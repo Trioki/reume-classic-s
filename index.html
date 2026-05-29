@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>GMod Loading Screen</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="background-overlay">
+    <img src="img/picture.jpg" alt="Background">
+</div>
+
+<div class="loading-card">
+        
+        <h1 id="server-name">Загрузка сервера...</h1>
+        
+        <p class="server-description">
+            Идейное продолжение сервера The Revolution Project - Русский Педобир от создателя HoloRu, который существовал с 2015 по 2020 год!
+        </p>
+
+        <div class="server-info-row">
+            <span id="player-count">Онлайн:</span>
+            <span id="map-name">Карта:</span>
+        </div>
+        
+		<div class="spinner"></div>
+		
+        <div id="loading-status">Загрузка контента</div>
+
+        <div class="card-bottom-bar">
+            <span>Не забудь открыть F1</span>
+            <span>F4 — магазин</span>
+            <span>F6 — донат-магазин</span>
+            <span>N — подписка с ежед. наградой</span>
+        </div>
+        
+    </div>
+
+    <script>
+        function GameDetails(servername, serverurl, mapname, maxplayers, steamid, gamemode) {
+            document.getElementById('server-name').innerText = servername;
+			
+			var activeColor = "#4449a8";
+			
+            document.getElementById('map-name').innerHTML = 'Карта: <span style="color:' + activeColor + ' !important;">' + mapname + '</span>';
+            document.getElementById('player-count').innerHTML = 'Онлайн: <span style="color:' + activeColor + ' !important;">0/' + maxplayers + '</span>';
+        }
+
+        function SetStatusChanged(status) {
+            document.getElementById('loading-status').innerText = status;
+        }
+    </script>
+</body>
+</html>

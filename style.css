@@ -1,0 +1,125 @@
+/* Базовые сбросы */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', 'Inter', 'Segoe UI', sans-serif;
+}
+
+/* Абсолютно черный/темный фон всего экрана */
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Немного проявляем фоновую картинку, чтобы было чему размываться за карточкой */
+.background-overlay img {
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+	z-index: 1; /* Картинка остается на нижнем слое */
+	pointer-events: none; /* Чтобы фон не мешал кликам, если они понадобятся */
+    filter: brightness(0.56); /* Слегка увеличили яркость с 0.05 до 0.15 */
+}
+
+/* Обновленная центральная карточка с блюром */
+.loading-card {
+    position: relative;
+    width: 800px;  
+	min-height: 480px;    /* Задаем минимальную высоту, меньше которой карточка не сожмется */
+    background: rgba(27, 29, 38, 0.65);  
+    backdrop-filter: blur(12px);  
+    -webkit-backdrop-filter: blur(12px); 
+    border: 1px solid rgba(255, 255, 255, 0.05); 
+    border-radius: 24px;  
+    padding: 50px 50px 110px 50px; /* Увеличили нижний отступ (110px), чтобы бинды не наезжали на статус */
+    text-align: center;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7); 
+    z-index: 2;
+    overflow: hidden;     
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Название сервера */
+#server-name {
+    font-size: 48px;
+    font-weight: 900;
+    color: #4449a8;       /* Фирменный неоново-синий */
+    letter-spacing: -1px;
+    margin-bottom: 25px;
+}
+
+/* Описание внутри карточки */
+.server-description {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #f0f1f5;
+    max-width: 650px;
+    margin-bottom: 30px;
+}
+
+/* Строка Онлайн / Карта */
+.server-info-row {
+    display: flex;
+    gap: 140px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #667085;       /* Приглушенный серый */
+    margin-bottom: 35px;
+}
+
+/* Статус загрузки */
+/* Круглая анимация загрузки (Спиннер) */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 255, 255, 0.05); /* Прозрачная основа круга */
+    border-top-color: #4449a8; /* Фирменный синий цвет бегущей линии */
+    border-radius: 50%;
+    margin-bottom: 20px; /* Отступ до текста loading-status */
+    animation: spin 1s linear infinite; /* Бесконечное плавное вращение */
+}
+
+/* Логика вращения спиннера */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Статус загрузки (убедись, что у него нет больших верхних отступов) */
+#loading-status {
+    font-size: 20px;
+    font-weight: 800;
+    color: #4d5ae5;
+    text-transform: lowercase;
+}
+/* Панель с биндами, прижатая к низу карточки */
+.card-bottom-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+	padding: 30px 40px; /* Сделали панель чуть просторнее */
+    background: rgba(0, 0, 0, 0.2); /* Слегка усилили контраст подложки биндов */
+}
+
+/* Текст биндов */
+.card-bottom-bar span {
+	font-size: 12px; /* Чуть увеличили шрифт для читаемости */
+    font-weight: 700;
+    color: #7b8395;       /* Светло-серый цвет текста подсказок */
+	letter-spacing: 0.2px;
+    white-space: nowrap; /* Запрещаем тексту бинда переноситься на новую строку */
+}
