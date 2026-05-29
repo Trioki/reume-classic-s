@@ -52,7 +52,7 @@ body, html {
 #server-name {
     font-size: 48px;
     font-weight: 900;
-    color: #4449a8;       /* Фирменный неоново-синий */
+    color: #2f49a7;       /* Фирменный неоново-синий */
     letter-spacing: -1px;
     margin-bottom: 25px;
 }
@@ -83,7 +83,7 @@ body, html {
     width: 40px;
     height: 40px;
     border: 3px solid rgba(255, 255, 255, 0.05); /* Прозрачная основа круга */
-    border-top-color: #4449a8; /* Фирменный синий цвет бегущей линии */
+    border-top-color: #2f49a7; /* Фирменный синий цвет бегущей линии */
     border-radius: 50%;
     margin-bottom: 20px; /* Отступ до текста loading-status */
     animation: spin 1s linear infinite; /* Бесконечное плавное вращение */
