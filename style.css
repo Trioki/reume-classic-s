@@ -78,21 +78,38 @@ body, html {
 }
 
 /* Статус загрузки */
-/* Круглая анимация загрузки (Спиннер) */
-.spinner {
-    width: 40px;
-    height: 40px;
-    border: 3px solid rgba(255, 255, 255, 0.05); /* Прозрачная основа круга */
-    border-top-color: #2f49a7; /* Фирменный синий цвет бегущей линии */
-    border-radius: 50%;
-    margin-bottom: 20px; /* Отступ до текста loading-status */
-    animation: spin 1s linear infinite; /* Бесконечное плавное вращение */
+/* Контейнер-подложка для полосы загрузки */
+.progress-bar-container {
+    width: 300px;                 /* Ширина полоски внутри карточки */
+    height: 6px;                  /* Толщина линии */
+    background: rgba(255, 255, 255, 0.05); /* Темный фон незаполненной части */
+    border-radius: 10px;
+    margin-bottom: 25px;          /* Отступ до текста статуса */
+    position: relative;
+    overflow: hidden;             /* Чтобы бегущая линия не вылезала за края */
 }
 
-/* Логика вращения спиннера */
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
+/* Активная анимированная линия */
+.progress-bar-line {
+    position: absolute;
+    height: 100%;
+    width: 50%;                   /* Длина бегущего ползунка */
+    background: #4449a8;          /* Твой фирменный синий цвет */
+    border-radius: 10px;
+    box-shadow: 0 0 10px #4d5ae5; /* Легкое неоновое свечение */
+    animation: loading-bar 1.6s ease-in-out infinite; /* Движение туда-сюда */
+}
+
+/* Анимация движения линии слева направо */
+@keyframes loading-bar {
+    0% {
+        left: -50%;
+    }
+    50% {
+        left: 100%;
+    }
+    100% {
+        left: -50%;
     }
 }
 
