@@ -24,7 +24,9 @@
 			<span id="player-count">Игроков:</span>
         </div>
         
-		<div class="spinner"></div>
+		<div class="progress-bar-container">
+    		<div class="progress-bar-line"></div>
+		</div>
 		
         <div id="loading-status">Загрузка контента</div>
 
@@ -44,7 +46,7 @@
 			var activeColor = "#2f49a7";
 			
             document.getElementById('map-name').innerHTML = 'Карта: <span style="color:' + activeColor + ' !important;">' + mapname + '</span>';
-            document.getElementById('player-count').innerHTML = 'Онлайн: <span style="color:' + activeColor + ' !important;">0/' + maxplayers + '</span>';
+            document.getElementById('player-count').innerHTML = 'Игроков: <span style="color:' + activeColor + ' !important;">0/' + maxplayers + '</span>';
         }
 
         function SetStatusChanged(status) {
